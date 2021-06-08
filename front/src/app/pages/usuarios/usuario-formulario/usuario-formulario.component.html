@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+    <p-panel [header]="titulo">
+
+        <ng-template pTemplate="icons">
+            <button pButton routerLink="/usuarios" label="Voltar"><i class="pi pi-directions-alt"></i></button>
+        </ng-template>
+
+        <p-fieldset legend="Dados Pessoas">
+
+            <div class="p-fluid p-grid">
+                <div class=" p-col-12 p-md-8">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" pInputText formControlName="nome" [(ngModel)]="usuario.nome">
+                </div>
+            </div>
+            <div class="p-fluid p-grid">
+                <div class=" p-col-12 p-md-8">
+                    <label for="email">email:</label>
+                    <input type="text" id="email" pInputText formControlName="email" [(ngModel)]="usuario.email">
+                </div>
+            </div>
+            
+        </p-fieldset>
+
+
+        <div class="p-fluid p-grid p-jc-center">
+            <button pButton pRipple type="button" [label]="acao" class="p-button-raised" (click)="save()"></button>
+        </div>
+    </p-panel>
+</form>

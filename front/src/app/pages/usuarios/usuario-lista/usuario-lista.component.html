@@ -1,0 +1,32 @@
+<p-panel header="Todos os Usuarios">
+
+    <ng-template pTemplate="icons">
+        <button pButton  routerLink="formulario" label=" Novo Usuario"><i class="pi pi-user-plus"></i></button>
+    </ng-template>
+
+    <p-table [value]="clientes">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>email</th>
+                <th >Ação</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-obj>
+            <tr>
+                <td>{{obj.id}}</td>
+                <td>{{obj.nome}}</td>
+                <td>{{obj.email}}</td>
+                <td >
+                    <button pButton pRipple type="button" class="p-button-raised p-button-warning" icon="pi pi-pencil"
+                        [routerLink]="['formulario',obj.id]"></button>
+
+                    <button pButton pRipple type="button" class="p-button-raised p-button-danger" icon="pi pi-trash"
+                        (click)="confirmaExclusao(obj.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
